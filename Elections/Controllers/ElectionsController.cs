@@ -6,6 +6,7 @@ using Elections.Models;
 using Elections.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Elections.Controllers
 {
@@ -40,6 +41,8 @@ namespace Elections.Controllers
         [Route("GetVoter")]
         public Voters GetVoter(long id)
         {
+            var requestJson = JsonConvert.SerializeObject(id);
+            Utility.CreateRequestResponseFilesInBlob(requestJson, "Elections_GetVoter_Request_" + DateTime.Now.ToString());
             return _votersRepository.Get(id);
         }
 
