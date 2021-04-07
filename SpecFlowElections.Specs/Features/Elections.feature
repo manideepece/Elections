@@ -14,6 +14,7 @@ Examples:
 	| Id |
 	| 1  |
 
+
 Scenario Outline: Add a Voter
 	Given details of Voter (<firstName>, <lastName>, <age>)
 	When I add a voter
